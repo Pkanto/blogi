@@ -1,15 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
-</head>
-<body>
+{%extends 'base.html'%}
+{% block title%}Blogi {{post.title}} {%endblock%}
+{% block content%}
   <h1>{{ post.title}}</h1>
   <br/>
   <h4>{{post.author.first_name}}  {{post.author.last_name}}</h4><br/>
   <p>{{post.body}}</p>
-</body>
-</html>
+
+  <a href="{% url 'home' %}" class="btn btn-success">Etusivu</a>
+  {%endblock%}

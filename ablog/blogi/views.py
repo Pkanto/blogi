@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import ListView, DetailView
+from django.views.generic import ListView, DetailView, CreateView
 from .models import Post
 
 
@@ -13,3 +13,7 @@ class HomeView(ListView):
 class Artikkeli(DetailView):
   model = Post
   template_name = 'artikkeli.html'
+class kirjoitaBlogi(CreateView):
+  model = Post
+  template_name = 'blogging.html'
+  fields = '__all__'
