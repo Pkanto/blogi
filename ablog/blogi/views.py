@@ -1,6 +1,7 @@
 from django.shortcuts import render
-from django.views.generic import ListView, DetailView, CreateView
+from django.views.generic import ListView, DetailView, CreateView, UpdateView
 from .models import Post
+from .forms import mallikaavio
 
 
 # Create your views here.
@@ -15,5 +16,11 @@ class Artikkeli(DetailView):
   template_name = 'artikkeli.html'
 class kirjoitaBlogi(CreateView):
   model = Post
+  form_class = mallikaavio
   template_name = 'blogging.html'
-  fields = '__all__'
+  #fields = ('title', 'body')
+
+class Paivita(UpdateView):
+  model = Post
+  template_name = 'Editoi.html'
+  fields = ['title', 'body']
