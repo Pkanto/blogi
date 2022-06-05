@@ -12,13 +12,17 @@ from django.urls import reverse_lazy
 class HomeView(ListView):
   model = Post
   template_name = 'home.html'
+  ordering = ['-julkaisu']
+
 class Artikkeli(DetailView):
   model = Post
   template_name = 'artikkeli.html'
+
 class kirjoitaBlogi(CreateView):
   model = Post
   form_class = mallikaavio
   template_name = 'blogging.html'
+  success_url = reverse_lazy('home')
   #fields = ('title', 'body')
 
 class Paivita(UpdateView):

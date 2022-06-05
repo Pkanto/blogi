@@ -4,6 +4,7 @@
   <h1>{{ post.title}}</h1>
   <br/>
   <h4>{{post.author.first_name}}  {{post.author.last_name}}</h4><br/>
+  {{post.julkaisu}}<br/>
   <p>{{post.body}}</p>
 
   <a href="{% url 'home' %}" class="btn btn-success">Etusivu</a>

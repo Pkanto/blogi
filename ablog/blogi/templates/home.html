@@ -7,6 +7,7 @@
   {% for post in object_list %}
     <li><h3><a href="{%url 'artikkeli' post.pk%}">{{post.title}}</a></h3>kirjoittanut 
     <strong>{{post.author.first_name}} {{post.author.last_name}}</strong><br/>
+    {{post.julkaisu}}<br/>
     <small> <a href="{% url 'paivita' post.pk%}" class="btn btn-primary btn-sm" >Päivitä</a></small>-
     <small> <a href="{% url 'poista' post.pk%}" class="btn btn-primary btn-sm" >Poista</a></small>  <br/>
     <br/>
