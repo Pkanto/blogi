@@ -2,11 +2,14 @@
 
 {% block content%}
 <br/>
-<h1>Posts</h1>
+<h1>Blogit</h1>
   <ul>
   {% for post in object_list %}
-    <li><a href="{%url 'artikkeli' post.pk%}">{{post.title}}</a> - <a href="{% url 'paivita' post.pk%}" >Päivitä</a>-<br/>
-    {{post.author.first_name}} {{post.author.last_name}}<br/>
+    <li><h3><a href="{%url 'artikkeli' post.pk%}">{{post.title}}</a></h3>kirjoittanut 
+    <strong>{{post.author.first_name}} {{post.author.last_name}}</strong><br/>
+    <small> <a href="{% url 'paivita' post.pk%}" class="btn btn-primary btn-sm" >Päivitä</a></small>-
+    <small> <a href="{% url 'poista' post.pk%}" class="btn btn-primary btn-sm" >Poista</a></small>  <br/>
+    <br/>
 
     </li>
   {% endfor%}

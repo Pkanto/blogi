@@ -1,0 +1,14 @@
+{%extends 'base.html'%}
+{% block title%}Blogin poisto {%endblock%}
+{% block content%}
+  <h1>Blogin poisto</h1>
+  <br/><br/>
+  <h3>Poista blogi  {{ post.title }}</h3>
+  <div class="mb-3">
+  <form method="POST">
+    {% csrf_token %}
+    <strong>Oletko varma että haluat poistaa</strong>
+    <br/><br/>
+    <button class="btn btn-success">Poista</button>
+  </form>
+{%endblock%}

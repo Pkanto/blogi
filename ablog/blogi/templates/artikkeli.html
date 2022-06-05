@@ -7,5 +7,6 @@
   <p>{{post.body}}</p>
 
   <a href="{% url 'home' %}" class="btn btn-success">Etusivu</a>
-  <a href="{% url 'paivita' post.pk%}" class="btn btn-success">Päivitä</a>
+  <a href="{% url 'paivita' post.pk%}" >Päivitä</a>
+  <small> <a href="{% url 'poista' post.pk%}" >Poista</a></small>
   {%endblock%}

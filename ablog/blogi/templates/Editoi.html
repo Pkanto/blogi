@@ -2,10 +2,11 @@
 {% block title%}Blogin Muokkaus {%endblock%}
 {% block content%}
   <h1>Blogin muokkaus</h1>
-  <div class="mb-3"></div>
-  <div method="POST">
+  <div class="mb-3">
+  <form method="POST">
     {% csrf_token %}
     {{ form.as_p }}
     <button class="btn btn-success">Päivitä</button>
-  </div>
+  </form>
+</div>
 {%endblock%}
