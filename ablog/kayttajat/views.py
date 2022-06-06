@@ -5,5 +5,5 @@ from django.urls import reverse_lazy
 
 class TeeKayttaja(generic.CreateView):
     form_class = UserCreationForm
-    template_name = 'rekisteroi/rekisteroi.html'
+    template_name = 'registration/rekisteroi.html'
     success_url = reverse_lazy('login')

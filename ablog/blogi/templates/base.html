@@ -17,15 +17,24 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav">
+            {% if user.is_authenticated %}
+
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="{% url 'bloggin'%}">Blogin kirjoitus</a>
             </li>
             <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="{% url 'login' %}">Kirjaudu ulos</a>
+            </li>
+            {% else %}
+
+            <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="{% url 'rekisteroi'%}">Rekisteröi</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="{% url 'login'%}">Kirjaudu</a>
+              <a class="nav-link active" aria-current="page" href="{% url 'login' %}">Kirjaudu</a>
             </li>
+            {%endif%}
+            
           </ul>
         </div>
       </div>

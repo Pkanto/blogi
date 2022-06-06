@@ -1,6 +1,7 @@
 {%extends 'base.html'%}
 {% block title%}Blogin Muokkaus {%endblock%}
 {% block content%}
+{% if user.is_authenticated %}
   <h1>Blogin muokkaus</h1>
   <div class="mb-3">
   <form method="POST">
@@ -9,4 +10,13 @@
     <button class="btn btn-success">Päivitä</button>
   </form>
 </div>
+  {%else%}
+<li class="nav-item">
+  <a href="{% url 'rekisteroi'%}" class="btn btn-primary btn-sm">Rekisteröi</a>
+</li>
+<li class="nav-item">
+  <a href="{% url 'login' %}" class="btn btn-primary btn-sm">Kirjaudu</a>
+</li>
+
+{%endif%}
 {%endblock%}

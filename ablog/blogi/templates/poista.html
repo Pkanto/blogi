@@ -1,6 +1,7 @@
 {%extends 'base.html'%}
 {% block title%}Blogin poisto {%endblock%}
 {% block content%}
+{% if user.is_authenticated %}
   <h1>Blogin poisto</h1>
   <br/><br/>
   <h3>Poista blogi  {{ post.title }}</h3>
@@ -11,4 +12,13 @@
     <br/><br/>
     <button class="btn btn-success">Poista</button>
   </form>
+  {%else%}
+  <li class="nav-item">
+    <a href="{% url 'rekisteroi'%}" class="btn btn-primary btn-sm">Rekisteröi</a>
+  </li>
+  <li class="nav-item">
+    <a href="{% url 'login' %}" class="btn btn-primary btn-sm">Kirjaudu</a>
+  </li>
+  
+  {%endif%}
 {%endblock%}
