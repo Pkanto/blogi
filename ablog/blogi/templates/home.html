@@ -5,8 +5,9 @@
 <h1>Blogit</h1>
   <ul>
   {% for post in object_list %}
-    <li><h3><a href="{%url 'artikkeli' post.pk%}">{{post.title}}</a></h3>kirjoittanut 
+    <li><h4><a href="{%url 'artikkeli' post.pk%}">{{post.title}}</a></h4>kirjoittanut 
     <strong>{{post.author.first_name}} {{post.author.last_name}}</strong><br/>
+    Kategoria - <a href="{% url 'kategori' post.kategoria|slugify %}"><strong>{{post.kategoria}}</strong></a><br/>
     {{post.julkaisu}}<br/>
     {% if user.is_authenticated %}
     <small> <a href="{% url 'paivita' post.pk%}" class="btn btn-primary btn-sm" >Päivitä</a></small>-
@@ -17,4 +18,5 @@
     {%endif%}
   {% endfor%}
 </ul>
+<ul>
 {%endblock%}

@@ -1,0 +1,19 @@
+{%extends 'base.html'%}
+
+{% block content%}
+<h1>{{kat}}</h1>
+{% if user.is_authenticated %}
+<ul>
+{% for post in kategoria_posts %}
+<li><h4><a href="{%url 'artikkeli' post.pk%}">{{post.title}}</a></h4>kirjoittanut 
+  <strong>{{post.author.first_name}} {{post.author.last_name}}</strong><br/>
+  Kategoria - <a href="{% url 'kategori' post.kategoria %}"><strong>{{post.kategoria}}</strong></a><br/>
+  {{post.julkaisu}}<br/>
+
+{%endfor%}
+</ul>
+{% else %}
+    <a href="{% url 'rekisteroi'%}" class="btn btn-primary btn-sm">Rekisteröi</a>
+    <a href="{% url 'login' %}" class="btn btn-primary btn-sm">Kirjaudu</a>
+{%endif%}
+{%endblock%}

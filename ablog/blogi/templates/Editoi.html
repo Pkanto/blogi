@@ -11,12 +11,8 @@
   </form>
 </div>
   {%else%}
-<li class="nav-item">
+  
   <a href="{% url 'rekisteroi'%}" class="btn btn-primary btn-sm">Rekisteröi</a>
-</li>
-<li class="nav-item">
   <a href="{% url 'login' %}" class="btn btn-primary btn-sm">Kirjaudu</a>
-</li>
-
 {%endif%}
 {%endblock%}
