@@ -20,8 +20,12 @@ class Post(models.Model):
   kategoria = models.CharField(max_length = 255, default = 'ei kategoriaa')
   body = models.TextField()
   julkaisu = models.DateField(auto_now_add= True)
-  
+  likes = models.ManyToManyField(User, related_name='blogi_posts')
 
+  #tykkäysten määrä 
+  def tykkaykset_yhteensa(self):
+    return self.likes.count()
+  
   def __str__(self):
     return self.title + ' | ' + str(self.author)
 

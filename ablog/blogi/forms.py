@@ -16,7 +16,8 @@ class mallikaavio(forms.ModelForm):
 
     widgets = {
       'title':forms.TextInput(attrs= {'class': 'form-control','placeholder':'Otsikko'}),
-      'author':forms.Select(attrs= {'class': 'form-control'}),
+      'author':forms.TextInput(attrs= {'class': 'form-control','value':'','id':'id','type':'hidden'}),
+      #'author':forms.Select(attrs= {'class': 'form-control'}),
       'kategoria':forms.Select(choices= choise, attrs= {'class': 'form-control'}),
       'body':forms.Textarea(attrs= {'class': 'form-control', 'placeholder': 'Blogi teksti'})
     }

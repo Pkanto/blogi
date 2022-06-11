@@ -7,8 +7,10 @@
   <form method="POST">
     {% csrf_token %}
     {{ form.as_p }}
+  {%if user.id == post.author.id%}
     <button class="btn btn-success">Päivitä</button>
   </form>
+  {%endif%}
 </div>
   {%else%}
   

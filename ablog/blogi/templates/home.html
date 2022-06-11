@@ -10,11 +10,13 @@
     Kategoria - <a href="{% url 'kategori' post.kategoria|slugify %}"><strong>{{post.kategoria}}</strong></a><br/>
     {{post.julkaisu}}<br/>
     {% if user.is_authenticated %}
+    {% if user.id == post.author.id %}
     <small> <a href="{% url 'paivita' post.pk%}" class="btn btn-primary btn-sm" >Päivitä</a></small>-
     <small> <a href="{% url 'poista' post.pk%}" class="btn btn-primary btn-sm" >Poista</a></small>  <br/>
     <br/>
 
     </li>
+    {%endif%}
     {%endif%}
   {% endfor%}
 </ul>

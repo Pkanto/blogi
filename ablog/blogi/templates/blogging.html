@@ -12,6 +12,11 @@
     <button class="btn btn-success">Julkaise</button>
   </form>
 </div>
+<!--  Piiloittaa author valikon jotta kirjautunut merkataan kirjoittajaksi -->
+<script>
+  var nimi = "{{ user.id }}";
+  document.getElementById("id").value = nimi;
+</script>
 {%else%}
     <a href="{% url 'rekisteroi'%}" class="btn btn-primary btn-sm">Rekisteröi</a>
     <a href="{% url 'login' %}" class="btn btn-primary btn-sm">Kirjaudu</a>
