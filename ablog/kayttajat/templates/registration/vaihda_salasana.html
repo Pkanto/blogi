@@ -1,0 +1,19 @@
+{%extends 'base.html'%}
+{% block title%}Vaihda salasana{%endblock%}
+{% block content%}
+  <h1>Vaihda salasana</h1>
+  <div class="mb-3">
+  <form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button class="btn btn-success">Vaihda salasana</button>
+  </form>
+</div>
+<br/>
+<br/>
+<ul>
+  <li>Vaihdettu salasana täytyy olla vähintään 8 merkkiä pitkä</li>
+  <li>Vaihdettu salasana ei saa pitää sisällään henkilötietoja</li>
+  <li>Vaihdettu salasana täytyy sisältää isoja kirjaimia, pieniä kirjaimia, erikoismerkkejä ja numeroita</li>
+</ul>
+{%endblock%}
