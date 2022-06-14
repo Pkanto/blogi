@@ -20,7 +20,7 @@ class Post(models.Model):
   author = models.ForeignKey(User, on_delete= models.CASCADE)
   kategoria = models.CharField(max_length = 255, default = 'ei kategoriaa')
   body = RichTextField(blank = True, null = True)
-  #body = models.TextField()
+  kuvan_malli = models.ImageField(null=True, blank=True, upload_to ='images/')
   julkaisu = models.DateField(auto_now_add= True)
   likes = models.ManyToManyField(User, related_name='blogi_posts')
 
