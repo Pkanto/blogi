@@ -19,8 +19,8 @@ class Post(models.Model):
   title = models.CharField(max_length = 255)
   author = models.ForeignKey(User, on_delete= models.CASCADE)
   kategoria = models.CharField(max_length = 255, default = 'ei kategoriaa')
-  body = RichTextField(blank = True, null = True)
-  kuvan_malli = models.ImageField(null=True, blank=True, upload_to ='images/')
+  body = RichTextField(blank = True, null = True) 
+  kuvan_malli = models.ImageField(null=True, blank=True, upload_to ='images/')#kuvan lisäys malli blogin teko sivulle
   julkaisu = models.DateField(auto_now_add= True)
   likes = models.ManyToManyField(User, related_name='blogi_posts')
 
@@ -33,3 +33,14 @@ class Post(models.Model):
 
   def get_absolute_url(self):
     return reverse('home')
+
+class Profiili(models.Model):
+  user = models.OneToOneField(User, null = True, on_delete = models.CASCADE)
+  bio = models.TextField()
+  profiili_kuva = models.ImageField(null = True, blank = True,upload_to ='images/profiili/') #proffilin mallin editointi salliin oneToone liitoksen tietokantaan
+  some_fb = models.CharField(max_length = 255, null = True, blank = True)
+  some_insta = models.CharField(max_length = 255, null = True, blank = True)
+  
+
+  def __str__(self):
+    return str(self.user)

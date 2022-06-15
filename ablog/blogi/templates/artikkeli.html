@@ -8,7 +8,9 @@
   {{post.julkaisu}}<br/>
    <p>{{ tykkaykset_yhteensa }}  Tykkäystä</p><br/>
   <p>{{post.body|safe }}</p>
-
+  {% if post.kuvan_malli %}
+  <img src="{{ post.kuvan_malli.url }}"><br/>
+  {%endif%}
   <a href="{% url 'home' %}" class="btn btn-success">Etusivu</a>
   <br/><br/>
   <hr>
@@ -30,4 +32,5 @@
   <small> <a href="{% url 'poista' post.pk%}" >Poista</a></small>
   {%endif%}
   {%endif%}
+  <hr>
   {%endblock%}
