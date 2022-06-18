@@ -40,6 +40,7 @@ class Profiili(models.Model):
   profiili_kuva = models.ImageField(null = True, blank = True,upload_to ='images/profiili/') #proffilin mallin editointi salliin oneToone liitoksen tietokantaan
   some_fb = models.CharField(max_length = 255, null = True, blank = True)
   some_insta = models.CharField(max_length = 255, null = True, blank = True)
+  some_linke = models.CharField(max_length = 255, null = True, blank = True)
   
 
   def __str__(self):
