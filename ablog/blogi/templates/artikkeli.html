@@ -38,7 +38,7 @@
     <div class="card-body">
       <h5 class="card-title">{{post.author.first_name}} {{post.author.last_name}}</h5>
       <p class= "small text-muted">
-        <a href="kayttaja/{% url 'nayta_profiili' post.author.profiili.id %}">Profiili sivu</a>
+        <a href="{% url 'nayta_profiili' post.author.profiili.id%}">Profiili sivu</a>
         <a href="{{post.author.profiili.some_fb}}">Facebook</a>
         <a href="{{post.author.profiili.some_insta}}">Instagram</a>
         <a href="{{post.author.profiili.some_linke}}">Linkedin</a>
