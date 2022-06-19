@@ -1,7 +1,8 @@
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm, PasswordChangeForm
 from django.contrib.auth.models import User
 from django import forms
-
+from blogi.models import Profiili
+from django.db import models
 
 #tyylitelty käyttäjä rekisteröityminen sivusto
 
@@ -47,3 +48,16 @@ class SalasanaVaihtolomake(PasswordChangeForm):
   class Meta:
     model = User
     fields = ('old_password', 'new_password1', 'new_password2')
+
+class ProfiiliSivuLuonti(forms.ModelForm):
+  class Meta:
+    model = Profiili
+    fields =('bio', 'profiili_kuva','some_fb','some_insta','some_linke')
+    widgets = {
+        'bio':forms.Textarea(attrs= {'class': 'form-control','placeholder':'Otsikko'}),
+        #'profiili_kuva':forms.TextInput(attrs= {'class': 'form-control','value':'','id':'id','type':'hidden'}),
+        'some_fb':forms.TextInput(attrs= {'class': 'form-control'}),
+        'some_insta':forms.TextInput(attrs= {'class': 'form-control'}),
+        'some_linke':forms.TextInput(attrs= {'class': 'form-control'}),
+      }
+    

@@ -1,10 +1,10 @@
 from django.shortcuts import render, get_object_or_404
 from django.views import generic
-from django.views.generic import DetailView
+from django.views.generic import DetailView, CreateView
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm, PasswordChangeForm
 from django.contrib.auth.views import PasswordChangeView
 from django.urls import reverse_lazy
-from .forms import Kirjaudu, MuokkaaProfiialomake,SalasanaVaihtolomake
+from .forms import Kirjaudu, MuokkaaProfiialomake,SalasanaVaihtolomake,ProfiiliSivuLuonti
 from blogi.models import Profiili
 from django.db import models
 from django.contrib.auth.models import User
@@ -21,6 +21,15 @@ class EditoiProfiilia(generic.UpdateView):
     some_insta = models.CharField(max_length = 255, null = True, blank = True)
     some_linke = models.CharField(max_length = 255, null = True, blank = True)
     success_url = reverse_lazy('home')
+
+class LuoProfiiliSivut(CreateView):
+    model = Profiili
+    form_class = ProfiiliSivuLuonti
+    template_name = "registration/luoprofiilisivu.html"
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)
 
 
 class NaytaProfiili(DetailView):

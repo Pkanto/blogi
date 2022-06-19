@@ -41,9 +41,13 @@
                 Profiili
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                {% if user.profiili.id %}
                <li><a class="dropdown-item" href="{% url 'muokkaa'%}">Muokkaa tilitietoja</a></li>
-               <li><a class="dropdown-item" href="{% url 'nayta_profiili' user.id%}">Näytä profiili</a></li> 
-               <li><a class="dropdown-item" href="{% url 'editoi_profiili' user.id%}">muokkaa profiili</a></li> 
+               <li><a class="dropdown-item" href="{% url 'nayta_profiili' user.profiili.id %}">Näytä profiili</a></li> 
+               <li><a class="dropdown-item" href="{% url 'editoi_profiili' user.profiili.id%}">Muokkaa profiili</a></li> 
+               {% else %}
+               <li><a class="dropdown-item" href="{% url 'luo_profiili'%}">Tee profiilisivut</a></li> 
+               {% endif%}
               </ul>
             </li>
             <li class="nav-item">
