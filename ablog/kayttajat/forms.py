@@ -55,7 +55,7 @@ class ProfiiliSivuLuonti(forms.ModelForm):
     fields =('bio', 'profiili_kuva','some_fb','some_insta','some_linke')
     widgets = {
         'bio':forms.Textarea(attrs= {'class': 'form-control','placeholder':'Otsikko'}),
-        #'profiili_kuva':forms.TextInput(attrs= {'class': 'form-control','value':'','id':'id','type':'hidden'}),
+        'profiili_kuva':forms.ImageField(),
         'some_fb':forms.TextInput(attrs= {'class': 'form-control'}),
         'some_insta':forms.TextInput(attrs= {'class': 'form-control'}),
         'some_linke':forms.TextInput(attrs= {'class': 'form-control'}),
