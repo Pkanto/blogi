@@ -1,0 +1,22 @@
+{%extends 'base.html'%}
+{% block title%}Kommenttien kirjoitus {%endblock%}
+
+{% block content%}
+
+  <h1>Kommentti...</h1>
+  <div class="mb-3">
+  <form method="POST" enctype="POST"> <!--antaa lisätä tekstia ja mediaa-->
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button class="btn btn-success">Julkaise</button>
+  </form>
+</div>
+<!--  Piiloittaa author valikon jotta kirjautunut merkataan kirjoittajaksi -->
+<script>
+  var nimi = "{{ user.id }}";
+  document.getElementById("id").value = nimi;
+</script>
+    <a href="{% url 'rekisteroi'%}" class="btn btn-primary btn-sm">Rekisteröi</a>
+    <a href="{% url 'login' %}" class="btn btn-primary btn-sm">Kirjaudu</a>
+
+{%endblock%}

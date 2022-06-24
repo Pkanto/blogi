@@ -11,8 +11,9 @@
   {% if post.kuvan_malli %}
   <img src="{{ post.kuvan_malli.url }}"><br/>
   {%endif%}
+  <br/><hr>
   <a href="{% url 'home' %}" class="btn btn-success">Etusivu</a>
-  <br/><br/>
+  <br/>
   <hr>
   <br/>
   {% if user.is_authenticated %}
@@ -27,6 +28,8 @@
   <hr><br/>
   <!--Kommetti laatikko johon kommentit tulevat-->
   {% if post.kommentit.all %}
+    <a href="{url 'kommentti_kirjoitus' }">Lisää Kommenntti</a>
+    <br/><br/>
     {% for kommentti in post.kommentit.all %}
     <div class="card">
       <div class="card-header">
@@ -41,7 +44,7 @@
     </div>
       {% endfor%}
   {% else %}
-    <a href = "#">Lisää kommentti</a>
+    <a href = "{ url='kommentti_kirjoitus' }">Lisää kommentti</a>
   {% endif %}
   <hr><br/>
   {% endif %}

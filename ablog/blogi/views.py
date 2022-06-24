@@ -88,5 +88,12 @@ def LikeView(request,pk):
     liked = True
   return HttpResponseRedirect(reverse('artikkeli', args=[str(post.pk)]))
 
+#Kommettien kirjoitus näkymä
+class kirjoitaKommentti(CreateView):
+  model = Post
+  form_class = mallikaavio
+  fields = "__all__"
+  template_name = 'Lisaa_kommentti.html'
+  success_url = reverse_lazy('home')
 
 

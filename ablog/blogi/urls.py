@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.urls import path, include
 from . import views
-from .views import HomeView, Artikkeli, kirjoitaBlogi, Paivita, Poista, TeeKategoria, Kategoriat, LikeView
+from .views import HomeView, Artikkeli, kirjoitaBlogi, Paivita, Poista, TeeKategoria, Kategoriat, LikeView, kirjoitaKommentti
 
 
 urlpatterns = [
@@ -13,4 +13,5 @@ urlpatterns = [
     path('artikkeli/<int:pk>/poista', Poista.as_view(), name = 'poista'),
     path('kategoria/<str:kat>/', Kategoriat, name = 'kategori'),
     path('like/<int:pk>', LikeView, name = 'like_post'),
+    path('artikkeli/<int:pk>/kommentti/',kirjoitaKommentti.as_view(),name='kommentti_kirjoitus'),
 ]
