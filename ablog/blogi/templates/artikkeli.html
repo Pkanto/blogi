@@ -26,9 +26,9 @@
   {% endif %}
   </form>
   <hr><br/>
-  <!--Kommetti laatikko johon kommentit tulevat-->
+  <!--Kommentti laatikko johon kommentit kirjoitetaan ja jossa ne näkyvät-->
   {% if post.kommentit.all %}
-    <a href="{url 'kommentti_kirjoitus' }">Lisää Kommenntti</a>
+    <a href="{% url 'kommentti_kirjoitus' post.pk %}">Lisää Kommentti</a>
     <br/><br/>
     {% for kommentti in post.kommentit.all %}
     <div class="card">
@@ -43,8 +43,8 @@
       </div>
     </div>
       {% endfor%}
-  {% else %}
-    <a href = "{ url='kommentti_kirjoitus' }">Lisää kommentti</a>
+      {% else %}
+      <a href="{% url 'kommentti_kirjoitus' post.pk %}">Lisää Kommentti</a>
   {% endif %}
   <hr><br/>
   {% endif %}

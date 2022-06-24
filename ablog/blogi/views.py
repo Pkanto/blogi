@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
-from .models import Post, Kategoria
-from .forms import mallikaavio
+from .models import Post, Kategoria,Kommentoi
+from .forms import mallikaavio, malliKommentoi
 from django.urls import reverse_lazy, reverse
 from django.http import HttpResponseRedirect
 
@@ -90,10 +90,15 @@ def LikeView(request,pk):
 
 #Kommettien kirjoitus näkymä
 class kirjoitaKommentti(CreateView):
-  model = Post
-  form_class = mallikaavio
-  fields = "__all__"
+  model = Kommentoi
+  form_class = malliKommentoi
   template_name = 'Lisaa_kommentti.html'
   success_url = reverse_lazy('home')
+  #Lisää käyttäjän blogi kommentteihin
+  def form_valid(self, form):
+        form.instance.post_id = self.kwargs['pk']
+        return super().form_valid(form)
+
+  
 
 

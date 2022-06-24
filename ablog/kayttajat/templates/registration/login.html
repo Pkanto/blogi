@@ -5,7 +5,13 @@
   <div class="mb-3">
   <form method="POST">
     {% csrf_token %}
-    {{ form.as_p }}
+    <form>
+      <div class="mb-3">
+        <input type="text" class="form-control" name = "username" placeholder="Username">
+      </div>
+      <div class="mb-3">
+        <input type="password" class="form-control" name = "password" placeholder="Password">
+      </div>
     <button class="btn btn-success">Kirjaudu</button>
   </form>
 </div>

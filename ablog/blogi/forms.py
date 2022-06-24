@@ -1,5 +1,5 @@
 from django import forms
-from .models import Post, Kategoria
+from .models import Post, Kategoria, Kommentoi
 
 lista = Kategoria.objects.all().values_list('nimi','nimi')
 
@@ -19,5 +19,16 @@ class mallikaavio(forms.ModelForm):
       'author':forms.TextInput(attrs= {'class': 'form-control','value':'','id':'id','type':'hidden'}),
       #'author':forms.Select(attrs= {'class': 'form-control'}),
       'kategoria':forms.Select(choices= choise, attrs= {'class': 'form-control'}),
+      'body':forms.Textarea(attrs= {'class': 'form-control', 'placeholder': 'Blogi teksti'}),
+    }
+
+
+class malliKommentoi(forms.ModelForm):
+  class Meta:
+    model = Kommentoi
+    fields = ('name','body')
+
+    widgets = {
+      'name':forms.TextInput(attrs= {'class': 'form-control','placeholder':'Otsikko'}),
       'body':forms.Textarea(attrs= {'class': 'form-control', 'placeholder': 'Blogi teksti'}),
     }
